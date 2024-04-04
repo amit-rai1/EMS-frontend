@@ -68,11 +68,14 @@ export default function LoginView() {
         }
       </Stack>
 
-      <Stack direction="row" alignItems="center" justifyContent="flex-end" sx={{ my: 3 }}>
-        <Link variant="subtitle2" underline="hover">
-          Forgot password?
-        </Link>
-      </Stack>
+      {isLoginForm && (
+        <Stack direction="row" alignItems="center" justifyContent="flex-end" sx={{ my: 3 }}>
+          <Link variant="subtitle2" underline="hover">
+            Forgot password?
+          </Link>
+        </Stack>
+      )}
+
 
       <LoadingButton
         fullWidth
@@ -81,6 +84,7 @@ export default function LoginView() {
         variant="contained"
         color="inherit"
         onClick={handleClickNavigate}
+        sx={{ marginTop: isLoginForm ? 0 : '35px' }}
       >
         {isLoginForm ? 'Login' : 'Sign up'}
       </LoadingButton>
@@ -113,11 +117,12 @@ export default function LoginView() {
             maxWidth: 420,
           }}
         >
-          <Typography variant="h4">Sign in to WorkTrack</Typography>
+
+          <Typography variant="h4">{isLoginForm ? 'Sign in to WorkTrack' : 'Create an account'}</Typography>
 
           <Typography variant="body2" sx={{ mt: 2, mb: 5 }}>
-            Don’t have an account?
-            <Link variant="subtitle2" sx={{ ml: 0.5, cursor: "pointer" }} onClick={handleGetStartedClick}>
+            {isLoginForm ? "Don't have an account?" : 'Already have an account?'}
+            <Link variant="subtitle2" sx={{ ml: 0.5, cursor: 'pointer' }} onClick={handleGetStartedClick}>
               {isLoginForm ? 'Get started' : 'Login'}
             </Link>
           </Typography>
