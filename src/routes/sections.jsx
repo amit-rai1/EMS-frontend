@@ -23,14 +23,15 @@ export default function Router() {
         </DashboardLayout>
       ),
       children: [
-        { element: <IndexPage />, index: true },
+        // { element: <IndexPage />, index: true },
+        { path: 'superadmin', element: <IndexPage /> },
         { path: 'admin', element: <UserPage /> },
         // { path: 'products', element: <ProductsPage /> },
         // { path: 'blog', element: <BlogPage /> },
       ],
     },
     {
-      path: 'login',
+      path: '/',
       element: <LoginPage />,
     },
     {

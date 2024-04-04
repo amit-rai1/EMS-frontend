@@ -61,7 +61,8 @@ export default function UserPage() {
     setSelectedOptionEmployees(event.target.value);
   };
 
-  // adding by manish of admin add (upper part) .....................................
+
+  // adding by manish of admin add (upper part) ..............................
 
 
   const handleSort = (event, id) => {
@@ -133,14 +134,13 @@ export default function UserPage() {
 
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Add New User</DialogTitle>
+
         <DialogContent>
           <TextField autoFocus margin="dense" id="name" label="Company Name" type="text" fullWidth />
           <TextField margin="dense" id="email" label="Company Email" type="email" fullWidth />
           <TextField margin="dense" id="phone" label=" Company Phone no." type="number" fullWidth />
-          {/* <TextField margin="dense" id="email" label="Email Address" type="email" fullWidth /> */}
 
-          <FormControl fullWidth sx={{ marginTop: "12px" }}
-          >
+          <FormControl fullWidth sx={{ marginTop: "12px" }}>
             <InputLabel id="demo-simple-select-label">Select Location</InputLabel>
             <Select
               labelId="demo-simple-select-label"
