@@ -28,15 +28,21 @@ export default function LoginView() {
   const router = useRouter();
 
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoginForm, setIsLoginForm] = useState(true);
 
-  const handleClick = () => {
+
+  const handleClickNavigate = () => {
     router.push('/superadmin');
+  };
+
+  const handleGetStartedClick = () => {
+    setIsLoginForm(!isLoginForm);
   };
 
   const renderForm = (
     <>
       <Stack spacing={3}>
-        <TextField name="email" label="Email address" />
+        <TextField name="email" label=" Email address" />
 
         <TextField
           name="password"
@@ -52,6 +58,14 @@ export default function LoginView() {
             ),
           }}
         />
+
+        {!isLoginForm &&
+          <>
+            <TextField name="firstName" label="First Name" />
+            <TextField name="lastName" label="Last Name" />
+            {/* <TextField name="phoneNumber" label="Phone Number" /> */}
+          </>
+        }
       </Stack>
 
       <Stack direction="row" alignItems="center" justifyContent="flex-end" sx={{ my: 3 }}>
@@ -66,9 +80,9 @@ export default function LoginView() {
         type="submit"
         variant="contained"
         color="inherit"
-        onClick={handleClick}
+        onClick={handleClickNavigate}
       >
-        Login
+        {isLoginForm ? 'Login' : 'Sign up'}
       </LoadingButton>
     </>
   );
@@ -99,12 +113,12 @@ export default function LoginView() {
             maxWidth: 420,
           }}
         >
-          <Typography variant="h4">Sign in to Minimal</Typography>
+          <Typography variant="h4">Sign in to WorkTrack</Typography>
 
           <Typography variant="body2" sx={{ mt: 2, mb: 5 }}>
             Don’t have an account?
-            <Link variant="subtitle2" sx={{ ml: 0.5 }}>
-              Get started
+            <Link variant="subtitle2" sx={{ ml: 0.5, cursor: "pointer" }} onClick={handleGetStartedClick}>
+              {isLoginForm ? 'Get started' : 'Login'}
             </Link>
           </Typography>
 
