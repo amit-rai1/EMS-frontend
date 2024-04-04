@@ -84,7 +84,7 @@ export default function LoginView() {
         variant="contained"
         color="inherit"
         onClick={handleClickNavigate}
-        sx={{ marginTop: isLoginForm ? 0 : '35px' }}
+        sx={{ marginTop: isLoginForm ? 0 : '22px' }}
       >
         {isLoginForm ? 'Login' : 'Sign up'}
       </LoadingButton>
